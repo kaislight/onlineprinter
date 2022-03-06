@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}登录{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/log.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+</head>
+
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+          <form class='form' action="/login/" method="post">
+
+              {% if message %}
+                  <div class="alert alert-warning">{{ message }}</div>
+              {% endif %}
+              {% csrf_token %}
+              <h2 class="text-center">欢迎登录</h2>
+              <div class="form">
+                <div class="form">
+                    {{ login_form.username}}
+                </div>
+                <div class="form">
+                    {{ login_form.password }}
+                </div>
+                <div class="form">
+                    {{ login_form.captcha.label_tag }}
+                    {{ login_form.captcha }}
+                </div>
+                <br>
+                  <button type="reset">重置</button>
+                  <button type="submit">提交</button>
+              </div>
+
+          </form>
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/log.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+</head>
+{% block title %}注册{% endblock %}
+{% block content %}
+    <div class="wrapper">
+        <div class="container">
+          <form class='form' action="/register/" method="post">
+
+              {% if message %}
+                  <div class="alert alert-warning">{{ message }}</div>
+              {% endif %}
+
+              {% csrf_token %}
+
+              <h2 class="text-center">欢迎注册</h2>
+              <div class="form">
+                  {{ register_form.username.label_tag }}
+                  {{ register_form.username}}
+            
+                  {{ register_form.password1.label_tag }}
+                  {{ register_form.password1 }}
+              
+                  {{ register_form.password2.label_tag }}
+                  {{ register_form.password2 }}
+              
+                  {{ register_form.email.label_tag }}
+                  {{ register_form.email }}
+              
+                  {{ register_form.sex.label_tag }}
+                  {{ register_form.sex }}
+              
+                  {{ register_form.captcha.errors }}
+                  {{ register_form.captcha.label_tag }}
+                  {{ register_form.captcha }}
+              </div>
+
+              <button type="reset">重置</button>
+              <button type="submit">提交</button>
+
+          </form>
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div> <!-- /container -->
+{% endblock %}

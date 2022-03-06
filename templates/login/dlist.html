@@ -1,0 +1,47 @@
+{#login/templates/login/index.html#}
+
+{% extends 'bar.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/dlist.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+</head>
+{% block title %}主页{% endblock %}
+{% block content %}
+    {% if request.session.is_login %}
+    <h1 align='center'><span style='color : black;text-align:center;width=100%;font-size:40;'>设备列表</span></h1>
+        <form method="post" action="" onsubmit="return">
+            {% csrf_token %}
+            
+            <div id="pricing-table" class="clear">
+                {% for i in data %}
+                <div class="plan">
+                    <h3>{{i.name}}<span>
+                        {% if i.status == '离线'%}
+                        <b style="color:gray">{{i.status}}</b>
+                    </span></h3>
+                    <button class="signup" style="border-width:0px;outline:none;background-color:gray;" type="submit" name="{{i.name}}">选择</button>
+                        {% elif i.status == '在线'%}
+                        <b style="color:#4ceb47">{{i.status}}</b>
+                    </span></h3>
+                    <button class="signup" style="border-width:0px;outline:none;background-color:#4ceb47;" type="submit" name="{{i.name}}">选择</button>
+                        {% elif i.status == '打印中'%}
+                        <b style="color:red">{{i.status}}</b>
+                    </span></h3>
+                    <button class="signup" style="border-width:0px;outline:none;background-color:red;" type="submit" name="{{i.name}}">选择</button>
+                        {% endif %}
+                    <ul>
+                        <li><b>{{i.kind}}</b></li>
+                        <li><b style="color:gray">{{i.pp}}</b></li>
+                        
+                    </ul> 
+                </div>
+                {% endfor %}
+                
+            </div>
+        </form>
+    {% else %}
+    <h1>请登录后再访问！</h1>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,38 @@
+"""html9 URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/4.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.urls import path
+from django.urls import include
+from django.contrib import admin
+from login import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('index/', views.index),
+    path('login/', views.login),
+    path('register/', views.register),
+    path('logout/', views.logout),
+    path('list/', views.dlist),
+    path('equip/printlist/', views.printlist),
+    path('equip/history/', views.printhistory),
+    path('equip/about/', views.printabout),
+    path('about/', views.about),
+    path('refresh/', views.refresh),
+    path('bjzt/', views.bjzt),
+    path('dylb/', views.dylb),
+    path('lsjl/', views.lsjl),
+    path('equip/', views.equip),
+    path('captcha', include('captcha.urls'))  # 增加这一行
+]

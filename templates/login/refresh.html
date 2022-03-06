@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+{% block title %}主页{% endblock %}
+{% block content %}
+    {% if request.session.is_login %}
+    <p id="text"></p>    
+    <script>        
+        var i=0;
+        var str="正在读取数据·····n正在删除字符·····n正在去除'白饭/小碗'的数据·····n正在去除'白饭/大碗'的数据·····n正在寻找订单状态不为1的索引·····n"
+        str = str + "正在寻找订单状态不为1的订单ID·····n正在删除订单状态不为1的数据·····n正在删除点餐数量小于3的用户·····n"
+        str = str + "正在删除 order_id的列·····n正在创建用户--菜品二元矩阵·····n正在将训练数据转成客户-菜品的二元矩阵·····n正在计算各个菜品之间的相似度·····n"
+        str = str + "正在将测试数据转成字典形式，用cs表示·····n找到相似度最高的一道菜·····n正在对客户所点的每一道菜,推荐与其相似度最高的一道菜，用aa表示·····n"
+        str = str + "正在计算准确率·····n正确推荐的菜品数: "+ {{ref}} +" 所有推荐菜品数: 1148 准确率: " + {{refp}};            
+        window.onload=function typing(){
+                    //获取div
+            var mydiv=document.getElementById("text");
+            if(str.charAt(i) == "n"){
+                mydiv.innerHTML+="<br>";
+            }
+            else{
+                mydiv.innerHTML+=str.charAt(i);
+            }
+            i++;
+            var id=setTimeout(typing,80);
+            if(i==str.length){
+                clearTimeout(id);
+                }
+            }
+    </script>
+    {% else %}
+    <h1>请登录后再访问！</h1>
+    {% endif %}
+{% endblock %}

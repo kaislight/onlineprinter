@@ -1,0 +1,2 @@
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+URL：https://dplaynordics-vod-59.akamaized.net/dplaydni/234409/0/hls/10400019004/exp=1634231376~acl=/*~data=hdntl~hmac=440146fa338a43e91aac9d785ce9c35c4aac08d8186fdcd4285d9cae14389538/995756510-1032960.ts?version_hash=2da10240

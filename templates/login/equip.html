@@ -1,0 +1,18 @@
+{#login/templates/login/index.html#}
+
+{% extends 'bar.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/dlist.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+    <script type="text/javascript" src="{%static 'js/eqp.js' %}"></script>
+</head>
+{% block title %}主页{% endblock %}
+{% block content %}
+    {% if request.session.is_login %}
+    
+    {% else %}
+    <h1>请登录后再访问！</h1>
+    {% endif %}
+{% endblock %}

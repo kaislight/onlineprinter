@@ -1,0 +1,26 @@
+{#login/templates/login/index.html#}
+
+{% extends 'bar.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/eqp.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+    <script type="text/javascript" src="{%static 'js/eqp.js' %}"></script>
+</head>
+{% block title %}主页{% endblock %}
+{% block content %}
+    {% if request.session.is_login %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="myfile">
+        <p>拖动/点击上传STL文件</p>
+        <button type="submit">上传</button>
+    </form>
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/upload.js' %}"></script>
+    {% else %}
+    <h1>请登录后再访问！</h1>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,56 @@
+/*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+ @charset "UTF-8";
+ @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+ 
+ body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color:#585858;
+    background:url(/static/img/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+  }
+ 
+
+
+ h1 {
+   font-size: 60; 
+   font-weight: 300;
+   color: #000000;
+ }
+ 
+ h2 {
+   font-size:30; 
+   font-weight: 300;
+   margin:0px 50px 0px;
+   text-align: left;
+   display: block;
+   color: #000000;
+ }
+
+ h3 {
+  font-size:20; 
+  font-weight: 300;
+  margin:0px 50px 0px;
+  text-align: left;
+  display: block;
+  color: #000000;
+}
+
+.one {  
+    margin-top:5px;
+    margin-right:5px;  
+    text-align:left;
+    width: 98%;
+    height: 80%;  
+    writing-mode: vertical-rl;/*从左向右 从右向左是 writing-mode: vertical-rl;*/  
+    writing-mode: tb-rl;/*IE浏览器的从左向右 从右向左是 writing-mode: tb-rl；*/  
+}

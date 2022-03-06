@@ -1,0 +1,67 @@
+{% load static %}
+{% load static %}
+{% block css %}
+
+{% endblock %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}" />
+    <link href="{% static 'css/barstyle.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <section class="navigation">
+      <div class="nav-container">
+        <div class="brand">
+          <a href="#!">Whisky</a>
+        </div>
+        <nav>
+          <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+          <ul class="nav-list">
+            <li>
+              <a href="/index/">主页</a>
+            </li>
+            <li>
+              <a href="/list/">设备列表</a>
+            </li>
+            {% if request.session.active == 'eqp' %}
+            <li>
+              <a>设备功能</a>
+              <ul class="nav-dropdown">
+                <li>
+                  <a href="/equip/printlist/">打印列表</a>
+                </li>
+                <li>
+                  <a href="/equip/history/">历史记录</a>
+                </li>
+                <li>
+                  <a href="/equip/about/">设备详情</a>
+                </li>
+              </ul>
+            </li>
+            {% else %}
+            <li>
+              <a href="/about/">产品介绍</a>
+            </li>
+            {% endif %}
+            {% if request.session.is_login %}
+            <li><a href="/logout/">登出</a></li>
+            <li><a href="/refresh/">刷新</a></li>
+            {% else %}
+            <li><a href="/login/">登录</a></li>
+            <li><a href="/register/">注册</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    {% block content %}{% endblock %}
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'js/jquery-3.6.0.js' %}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{% static 'js/jq.js' %}"></script>
+  </body>
+</html>

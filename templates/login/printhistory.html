@@ -1,0 +1,47 @@
+{% extends 'bar.html' %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/printlist.css' %}">
+{% endblock %}
+<head>
+    <link rel="shortcut icon" href="{%static 'img/logo.ico' %}">
+</head>
+{% block content %}
+<section>
+    <!--for demo wrap-->
+    <h1><B>打印列表</B></h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>打印序列</th>
+            <th>文件名</th>
+            <th>文件大小</th>
+            <th>日期</th>
+            <th>下载</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>三棱锥.stl</td>
+            <td>10.6MB</td>
+            <td>2010/3/5 21:00</td>
+            <td>下载</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>茶壶.stl</td>
+            <td>15.2MB</td>
+            <td>2010/3/5 21:03</td>
+            <td><a href="{%static 'img/bg.png' %}">下载</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  
+{% endblock %}
